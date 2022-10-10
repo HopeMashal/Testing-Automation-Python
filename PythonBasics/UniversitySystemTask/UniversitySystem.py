@@ -1,5 +1,6 @@
 from Classes.Course import Course
 from Classes.Teacher import Teacher
+from Classes.Student import Student
 
 
 if __name__ == '__main__':
@@ -37,4 +38,26 @@ if __name__ == '__main__':
   teacher_1.printTeacherCourse()
   teacher_2.printTeacherCourse()
   teacher_3.printTeacherCourse()
-  
+
+  student_1 = Student("Hope","9876","Art","19/12/1990")
+  student_1.registerCourse(course_2)
+  student_1.registerCourse(course_4)
+  student_1.printStudentInfo()
+  student_1.printStudentCourse()
+  student_2 = Student("Yuki","9874","Engineering","12/12/1990")
+  student_2.registerCourse(course_1)
+  student_2.registerCourse(course_3)
+  student_2.printStudentInfo()
+  student_2.printStudentCourse()
+  student_3 = Student("Akira","9871","Arabic","17/12/1990")
+  student_3.registerCourse(course_5)
+  student_3.printStudentInfo()
+  student_3.printStudentCourse()
+  student_4 = Student("Mira","9870","English","13/12/1990")
+  student_4.registerCourse(course_4)
+  student_4.printStudentInfo()
+  student_4.printStudentCourse()
+  student_5 = Student("Samia","9879","Japanese","29/12/1990")
+  student_5.registerCourse(course_6)
+  student_5.printStudentInfo()
+  student_5.printStudentCourse()
