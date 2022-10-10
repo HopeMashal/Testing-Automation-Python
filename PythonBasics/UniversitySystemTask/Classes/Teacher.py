@@ -1,16 +1,25 @@
 class Teacher:
-  def __init__(self,name,id,courses='none'):
+  courses=[]
+
+  def __init__(self,name,id):
     self.name = name
     self.id = id
-    self.courses = courses
+    self.courses = []
   
   def printTeacherInfo(self):
     print(f"Teacher name is {self.name}. His/Her ID is {self.id}.")
   
   def printTeacherCourse(self):
-    if self.courses == 'none':
-      print(f"This teacher doesn't have courses yet!!")
+    if len(self.courses) == 0:
+      print(f"Teacher name is {self.name}. This teacher doesn't have courses yet!!")
     elif len(self.courses) == 1:
-      print(f"This teacher's course is {self.courses}")
+      print(f"Teacher name is {self.name}. This teacher's course is {self.courses[0].name}")
     else :
-      print(f"This teacher's courses are {self.courses}")
+      TeacherCourses = []
+      for course in self.courses:
+        TeacherCourses.append(course.name)
+      print(f"Teacher name is {self.name}. This teacher's courses are {TeacherCourses}")
+  
+  def assignToCourse(self,course):
+    self.courses.append(course)
+    course.teacher = self

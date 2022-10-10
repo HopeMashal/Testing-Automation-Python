@@ -1,0 +1,40 @@
+from Classes.Course import Course
+from Classes.Teacher import Teacher
+
+
+if __name__ == '__main__':
+  teacher_1 = Teacher("Ahmad","1234")
+  teacher_1.printTeacherInfo()
+  teacher_2 = Teacher("Sami","2345")
+  teacher_2.printTeacherInfo()
+  teacher_3 = Teacher("Amal","3456")
+  teacher_3.printTeacherInfo()
+
+  course_1 = Course("Math",3)
+  course_1.printCourseInfo()
+  teacher_1.assignToCourse(course_1)
+  course_1.printTeacher()
+  course_2 = Course("Art",2)
+  course_2.printCourseInfo()
+  teacher_1.assignToCourse(course_2)
+  course_2.printTeacher()
+  course_3 = Course("Engineering",5)
+  course_3.printCourseInfo()
+  teacher_2.assignToCourse(course_3)
+  course_3.printTeacher()
+  course_4 = Course("English",3)
+  course_4.printCourseInfo()
+  teacher_2.assignToCourse(course_4)
+  course_4.printTeacher()
+  course_5 = Course("Arabic",2)
+  course_5.printCourseInfo()
+  teacher_3.assignToCourse(course_5)
+  course_5.printTeacher()
+  course_6 = Course("Japanese",1)
+  course_6.printCourseInfo()
+  teacher_3.assignToCourse(course_6)
+  course_6.printTeacher()
+  teacher_1.printTeacherCourse()
+  teacher_2.printTeacherCourse()
+  teacher_3.printTeacherCourse()
+  
