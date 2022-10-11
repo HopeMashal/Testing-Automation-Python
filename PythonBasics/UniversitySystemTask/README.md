@@ -9,17 +9,21 @@ Please define and create the needed classes to simulate this system
 - The course must have a name, number of hours, teacher, and students, each course can have one teacher and many students
 
 For each student we need the ability to get the following:
-Student info (name, major, id and birthdate )
-Registered courses
+
+- Student info (name, major, id and birthdate )
+- Registered courses
 
 For each teacher we need the ability to get the following:
-Teacher info (name and id )
-Courses
+
+- Teacher info (name and id )
+- Courses
 
 For each course we need the ability to get the following:
-Course info ( name, number of hours)
-List of students
-Teacher name
+
+- Course info ( name, number of hours)
+- List of students
+- Teacher name
+
 After preparing needed classes create new class called university and do the following
 
 - Create 3 teachers, and print teacher info for each one
