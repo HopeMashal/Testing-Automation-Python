@@ -29,7 +29,7 @@ After preparing needed classes create new class called university and do the fol
 - Create 3 teachers, and print teacher info for each one
 - Create 6 courses and assign 2 courses for each teacher
 - Print course information for each course
-- Print couse names for each teacher
+- Print course names for each teacher
 - Create 5 students
 - Register each student in one or more courses
 - Print student info for each student
