@@ -6,4 +6,4 @@ with open('./PythonBasics/CSVTask/CSVFiles/input.csv', 'rt') as f:
     next(csv_reader) # skip the header
 
     for line in csv_reader:
-        print(line[0] , line[1])
+        print(line)  # Print as Array
