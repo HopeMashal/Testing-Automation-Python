@@ -6,7 +6,7 @@ rows = [
     [2, 'Yuki', 'Japan, Tokyo', 97401 ],
 ]
 
-with open('./PythonBasics/CSVTask/CSVFiles/output.csv', 'wt') as f:
+with open('./PythonBasics/CSVTask/CSVFiles/output.csv', 'wt', newline='') as f:
     csv_writer = csv.writer(f, quoting=csv.QUOTE_ALL)
 
     csv_writer.writerow(header) # write header
