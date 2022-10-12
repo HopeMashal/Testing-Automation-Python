@@ -1,3 +1,5 @@
+# python -m venv .venv >> Create Virtual Environment
+
 from Classes.Course import Course
 from Classes.Teacher import Teacher
 from Classes.Student import Student
