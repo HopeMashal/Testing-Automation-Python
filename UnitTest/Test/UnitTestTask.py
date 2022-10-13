@@ -1,4 +1,4 @@
-# pytest .\UnitTestTask.py --alluredir=..\..\allure-results
+# cd UnitTest/Test >> pytest .\UnitTestTask.py --alluredir=..\allure-results
 
 from unittest import TestCase
 

@@ -1,8 +1,10 @@
+# pytest .\UnitTest\Test\CSVFileTest.py --alluredir=.\UnitTest\allure-results
+
 import allure
 from ddt import *
 from unittest import TestCase
 
-from Core.CSVFile import *
+from UnitTest.Core.CSVFile import *
 
 @ddt
 class TestData(TestCase):
@@ -11,13 +13,13 @@ class TestData(TestCase):
     def test_numbers(self, num1, num2, maxNum):
         self.assertEqual(maxNum, max(num1,num2))
 
-    @data(*CSVFile.GetDataFromCSVFile("../Files/CSVFileTest.csv"))
+    @data(*CSVFile.GetDataFromCSVFile("./UnitTest/Files/CSVFileTest.csv"))
     @unpack
     def test_data(self,num1,num2, num3):
         self.assertEqual(max(int(num1),int(num2)),int(num3))
 
     def setUp(self):
-        allure.attach.file("../Files/CSVFileTest.csv","test_data.csv",attachment_type=allure.attachment_type.CSV)
+        allure.attach.file("./UnitTest/Files/CSVFileTest.csv","test_data.csv",attachment_type=allure.attachment_type.CSV)
         print("Setup")
 
     def tearDown(self) :
