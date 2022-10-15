@@ -1,0 +1,16 @@
+{
+  "DataMethod": [
+    {
+      "body": null,
+      "url": "/posts/1",
+      "expectedStatusCode": "200",
+      "expectedResponseBody": {}
+    },
+    {
+      "body": null,
+      "url": "/posts/undefined/8",
+      "expectedStatusCode": "404",
+      "expectedResponseBody": {}
+    }
+  ]
+}

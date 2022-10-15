@@ -1,0 +1,29 @@
+{
+  "DataMethod": [
+    {
+      "body": {
+        "userId": 1,
+        "title": "Something else",
+        "body": "this is the body description"
+      },
+      "url": "/posts/2",
+      "expectedStatusCode": "200",
+      "expectedResponseBody": {
+        "userId": 1,
+        "title": "Something else",
+        "body": "this is the body description",
+        "id": 2
+      }
+    },
+    {
+      "body": {
+        "userId": 1,
+        "title": "Something else",
+        "body": "this is the body description"
+      },
+      "url": "/posts/150",
+      "expectedStatusCode": "500",
+      "expectedResponseBody": {}
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "DataMethod": [
+    {
+      "body": {
+        "userId": 10,
+        "title": "Nothing",
+        "body": "Nothing to add"
+      },
+      "url": "/posts",
+      "expectedStatusCode": "201",
+      "expectedResponseBody": {
+        "userId": 10,
+        "title": "Nothing",
+        "body": "Nothing to add",
+        "id": 101
+      }
+    },
+    {
+      "body": {
+        "userId": 10,
+        "title": "Nothing",
+        "body": "Nothing to add"
+      },
+      "url": "/post0s",
+      "expectedStatusCode": "404",
+      "expectedResponseBody": {}
+    }
+  ]
+}
