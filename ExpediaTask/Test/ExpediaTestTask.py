@@ -4,19 +4,39 @@ from unittest import TestCase
 
 from ExpediaTask.Core.CSVFile import *
 from ExpediaTask.Core.ConfigFile import *
+from ExpediaTask.Pages.BingSearchPage import *
+from ExpediaTask.Pages.BingSearchResult import *
 
 @ddt
 class ExpediaTestTask(TestCase):
     Headers = []
     OutputData = []
-    BaseURL = ""
     ResultURL = ""
     ResultInfo = ""
+    MaxNumOfLinks = 0
 
     @data(*CSVFile.GetDataFromCSVFile("./ExpediaTask/Config/input.csv"))
     @unpack
     def testExpedia(self,hotelID,name,city,address):
-        print("")
+        bingSearchPage = BingSearchPage()
+        bingSearchPage.openBingPage(self.driver)
+        bingSearchPage.search(self.driver,name + " " + city + " expedia")
+        bingSearchResult = BingSearchResult()
+        URLList = []
+        counter = 0
+        for index in range(len(bingSearchResult.getResults(self.driver))):
+            resultHref = bingSearchResult.getResultHref(self.driver,index)
+            if resultHref.startswith(self.ResultURL) and resultHref.endswith(self.ResultInfo):
+                URLList.append(resultHref)
+                counter += 1
+        if counter > self.MaxNumOfLinks:
+            self.MaxNumOfLinks = counter
+        resultList = [hotelID,name,city,address]
+        if counter == 0:
+            resultList.append("Hotel NOT Found")
+        else:
+            resultList.extend(URLList)
+        self.OutputData.append(resultList)
 
     def setUp(self):
         print("Before Test")
@@ -26,7 +46,6 @@ class ExpediaTestTask(TestCase):
 
     @classmethod
     def setUpClass(cls) :
-        cls.BaseURL = ConfigFile.GetPropValue("./ExpediaTask/Config/prop.config", "server", "url")
         cls.ResultURL = ConfigFile.GetPropValue("./ExpediaTask/Config/prop.config", "searchResult", "url")
         cls.ResultInfo = ConfigFile.GetPropValue("./ExpediaTask/Config/prop.config", "searchResult", "info")
         cls.Headers = ["hotel_id","name","city","address"]
@@ -37,4 +56,8 @@ class ExpediaTestTask(TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        if cls.MaxNumOfLinks > 0:
+            for i in range(cls.MaxNumOfLinks):
+                cls.Headers.append("Link_" + (i + 1))
+        CSVFile.WriteCSVFile("./ExpediaTask/Config/output.csv",cls.Headers,cls.OutputData)
         print("After class")
