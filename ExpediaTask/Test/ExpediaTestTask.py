@@ -53,7 +53,6 @@ class ExpediaTestTask(TestCase):
         cls.ResultInfo = ConfigFile.GetPropValue("./ExpediaTask/Config/prop.config", "searchResult", "info")
         cls.Headers = ["hotel_id","name","city","address"]
         allure.attach.file("./ExpediaTask/Config/input.csv","inputData.csv",attachment_type=allure.attachment_type.CSV)
-        allure.attach.file("./ExpediaTask/Config/output.csv","outputData.csv",attachment_type=allure.attachment_type.CSV)
         allure.attach.file("./ExpediaTask/Config/prop.config","prop.config",attachment_type=allure.attachment_type.TEXT)
         print("Before class")
 
@@ -64,4 +63,5 @@ class ExpediaTestTask(TestCase):
             for i in range(cls.MaxNumOfLinks):
                 cls.Headers.append("Link_" + str(i + 1))
         CSVFile.WriteCSVFile("./ExpediaTask/Config/output.csv",cls.Headers,cls.OutputData)
+        allure.attach.file("./ExpediaTask/Config/output.csv","outputData.csv",attachment_type=allure.attachment_type.CSV)
         print("After class")
