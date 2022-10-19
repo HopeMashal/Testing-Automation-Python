@@ -1,0 +1,12 @@
+To Create Virtual Environment run this command in command line --> python -m venv .venv
+
+To run your test use this command --> pytest .\UnitTest\Test\CSVFileTest.py --alluredir=.\UnitTest\allure-results
+==> pytest .\folderName\Test\fileName.py --alluredir=.\folderName\allure-results
+
+To Save all libraries use this command --> pip freeze > requirements.txt
+
+To Install all libraries use this command --> pip install -r requirements.txt
+
+To use If Statement with Jenkins use this command --> IF "%BooleanParameterName%"=="true" (
+...
+)
