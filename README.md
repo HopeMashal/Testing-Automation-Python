@@ -9,6 +9,6 @@ Testing Notes and some exercises - Using Python
 - UnitTest [GO](https://github.com/HopeMashal/Testing-Automation-Python/tree/master/UnitTest)
 - Request Task (Get/Post/Put/Delete) [GO](https://github.com/HopeMashal/Testing-Automation-Python/tree/master/RequestTest)
 
-### Jenkins Notes [GO]()
+### Jenkins Notes [GO](https://github.com/HopeMashal/Testing-Automation-Python/blob/master/jenkins.docx)
 
-### Important Notes [GO]()
+### Important Notes [GO](https://github.com/HopeMashal/Testing-Automation-Python/blob/master/ImportantNotes.txt)
