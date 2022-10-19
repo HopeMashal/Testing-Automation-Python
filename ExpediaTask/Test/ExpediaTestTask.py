@@ -4,6 +4,7 @@ from unittest import TestCase
 
 from ExpediaTask.Core.CSVFile import *
 from ExpediaTask.Core.ConfigFile import *
+from ExpediaTask.Core.OpenBrowser import *
 from ExpediaTask.Pages.BingSearchPage import *
 from ExpediaTask.Pages.BingSearchResult import *
 
@@ -46,6 +47,8 @@ class ExpediaTestTask(TestCase):
 
     @classmethod
     def setUpClass(cls) :
+        cls.driver = OpenBrowser.OpenChromeBrowser()
+        cls.driver.maximize_window()
         cls.ResultURL = ConfigFile.GetPropValue("./ExpediaTask/Config/prop.config", "searchResult", "url")
         cls.ResultInfo = ConfigFile.GetPropValue("./ExpediaTask/Config/prop.config", "searchResult", "info")
         cls.Headers = ["hotel_id","name","city","address"]
@@ -56,6 +59,7 @@ class ExpediaTestTask(TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        cls.driver.close()
         if cls.MaxNumOfLinks > 0:
             for i in range(cls.MaxNumOfLinks):
                 cls.Headers.append("Link_" + (i + 1))
